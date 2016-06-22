@@ -97,7 +97,7 @@ ChartAjax.getManager = function() {
 		 *
 		 */
 		initChart: function(chartName, canvas, type, url, handleDataMethod) {
-			this.charts[chartName] = new IubarChart(canvas, type, url);
+			this.charts[chartName] = new ChartAjax(canvas, type, url);
 			this.charts[chartName].handleData = handleDataMethod;
 			//this.charts[chartName].getData();
 		},
