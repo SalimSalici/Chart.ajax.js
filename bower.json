@@ -1,0 +1,19 @@
+{
+  "name": "chartajax",
+  "homepage": "https://github.com/SalimSalici/ChartAjax.js",
+  "authors": [
+    "salimsalici <salici.salim@gmail.com>"
+  ],
+  "description": "Chart.js wrapper made to simplify the plotting of data coming from ajax calls",
+  "main": "dist/ChartAjax.js",
+  "dependencies": {
+    "jquery": "~3.0.0",
+    "Chart.js": "~2.1.6"
+  },
+  "keywords": [
+    "chartjs",
+    "ajax",
+    "wrapper"
+  ],
+  "license": "MIT"
+}
