@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>ChartAjax test</title>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.bundle.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="../src/ChartAjax.js"></script>
+
+</head>
+<body>
+
+	<h1>ChartAjax Example</h1>
+
+	<div class="container">
+		<canvas id="chart"></canvas>
+	</div>
+
+	<script type="text/javascript">
+		
+		var elem = document.getElementById("chart");
+		var myChart = new ChartAjax(elem, "line", "ajax.json");
+		myChart.handleData = function(result) {
+			var toReturn = {
+				labels: [],
+				data: [],
+				backgroundColor: [],
+				borderColor: [],
+				options: {}
+			};
+
+			var months = ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Sett", "Ott", "Nov", "Dic"];
+
+			for (var i = 0; i < result.installed.length; i++) {
+				toReturn.labels.push(months[result.installed[i].month-1]);
+				toReturn.data.push(result.installed[i].count);
+			}
+
+			toReturn.backgroundColor.push("#4D4");
+
+			toReturn.borderColor.push("#44D");
+
+			toReturn.options = {
+				legend: {
+					display: false	
+				}
+			}
+
+			return toReturn;
+		}
+
+		myChart.getData();
+
+	</script>
+
+</body>
+</html>
